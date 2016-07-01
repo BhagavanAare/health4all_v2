@@ -770,7 +770,6 @@ class Masters_model extends CI_Model{
 	
 }
 
-
 function get_transactions(){
     $this->db->select('hr_transaction.hr_transaction_date, hr_transaction_type.hr_transaction_type')
     ->from('hr_transaction')
@@ -1916,4 +1915,3 @@ function icd_chapter(){
 		return $query->result();
 	}
 }
-?>

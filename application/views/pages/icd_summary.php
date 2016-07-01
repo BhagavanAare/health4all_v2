@@ -1,3 +1,4 @@
+
 <link rel="stylesheet"href="<?php echo base_url();?>assets/css/metallic.css">
 <link rel="stylesheet"href="<?php echo base_url();?>assets/css/theme.default.css">
 <script type="text/javascript"src="<?php echo base_url();?>assets/js/zebra_datepicker.js"></script>
@@ -79,6 +80,10 @@
 	opacity: 0.4;
 }
 </style>
+
+
+<!--  added selectize javascript for search box function -->
+
 <script type="text/javascript"
 	src="<?php echo base_url();?>assets/js/jquery.selectize.js"></script>
 
@@ -93,7 +98,7 @@ $(function(){
 			showProcessing: true,
 			headerTemplate : '{content} {icon}', // Add icon for jui theme; new in v2.7!
 
-			widgets: [ 'default', 'zebra', 'print', 'stickyHeaders','filter'],
+			widgets: [ 'default', 'zebra', 'print', 'stickyHeaders'],
 
 			widgetOptions: {
 
@@ -139,7 +144,7 @@ $(function(){
 		  $('.print').click(function(){
 			$('#table-sort').trigger('printTable');
 		  });
-				$('#icd_block').selectize({maxItems:20});
+		$('#icd_block').selectize({maxItems:20});   // maximum items(20) to display in serch box while typing
                 $('#icd_code').selectize({maxItems:20});
                 $('#icd_chapter').selectize({maxItems:20});
 		
@@ -195,7 +200,7 @@ $(function(){
 						echo ">".$v->visit_name."</option>";
 					}
 					?>
-					</select>
+					</select>							
 					Visit Type : <select class="form-control" name="visit_type">
 									<option value="" >All</option>
 									<option value="OP" <?php if($visit_type == "OP") echo " selected ";?>>OP</option>
@@ -216,6 +221,7 @@ $(function(){
 						?>
 			
 						</select>
+
 				</div>
 			<div class="col-md-4 alt">
                             <select name="icd_chapter[]" id="icd_chapter" placeholder="Select ICD Chapter.."></div>
@@ -230,7 +236,9 @@ $(function(){
 						}
 						?>
 						</select>
-                        </div>
+</div>			
+
+<!--  ICD block selection column	-->  
 
 			<div class="col-md-4 alt">			
 			<select name="icd_block[]" id="icd_block"placeholder="Select ICD Block..">
